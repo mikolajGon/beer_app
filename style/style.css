@@ -1,0 +1,302 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.bold-title {
+  font-weight: bold;
+}
+
+.main-container {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.main-title {
+  font-size: 48px;
+  color: orange;
+  text-transform: uppercase;
+}
+
+.tile {
+  display: flex;
+  flex-direction: row;
+  padding: 12px;
+  box-shadow: 3px 3px 25px black;
+  background-color: white;
+  transform:
+    skew(2deg);
+  transition: .3s;
+  transition-delay: .2s;
+}
+
+.tile-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 3;
+}
+
+.tile-details {
+  flex: 5;
+  text-align: center;
+}
+
+.tile-thumbnail {
+  object-fit: contain;
+  max-height: 200px;
+}
+
+.tile-details-title {
+  text-transform: uppercase;
+  font-size: 24px;
+  color: darkslategray;
+}
+
+.tile-details-tagline {
+  font-size: 16px;
+  font-weight: bold;
+  color: orange;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  border: 1px solid lightgray;
+  background: white;
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+  margin-right: -25%;
+  transform: translate(-50%, -50%);
+}
+
+.overlay {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.details-section {
+  padding: 12px;
+}
+
+.details-image {
+  display: flex;
+  flex: 1;
+}
+
+.details-image img{
+  max-height: 350px;
+  margin: 0 auto;
+}
+
+.details-description {
+  flex: 2;
+}
+
+.details-description-title {
+  font-size: 30px;
+  color: darkgrey;
+}
+
+.details-description-tagline {
+  font-size: 16px;
+  color: orange;
+}
+
+.details-description-food-list {
+  list-style: none;
+}
+
+.details-suggestions {
+  flex: 1 1 100%;
+}
+
+@media( max-width: 699px) {
+
+  .tile:nth-child(odd) {
+    background-color: lightgray;
+    transform:
+      skew(-2deg);
+  }
+
+  .modal {
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    margin-right: 0;
+    transform: none;
+  }
+
+  .details {
+    flex-direction: column;
+    align-content: center;
+  }
+
+}
+
+@media( min-width: 700px) {
+
+  .container {
+    flex-direction: row;
+  }
+
+}
+
+@media( min-width: 700px) and (max-width: 999px) {
+
+  .tile {
+    display: inline-flex;
+    flex: 1 1 40%;
+  }
+
+  .tile:nth-child(4n-1) {
+    background-color: lightgray;
+    transform:
+      skew(-2deg);
+  }
+
+  .tile:nth-child(4n-2) {
+    background-color: lightgray;
+    transform:
+      skew(-2deg);
+  }
+
+}
+
+@media( min-width: 1000px) and (max-width: 1399px) {
+
+  .tile {
+    display: inline-flex;
+    flex: 1 1 30%;
+  }
+
+  .tile:nth-child(odd) {
+    background-color: lightgray;
+    transform:
+      skew(-2deg);
+  }
+
+}
+
+@media( min-width: 1400px) {
+
+  .tile {
+    display: inline-flex;
+    flex: 1 1 20%;
+  }
+
+  .tile:nth-child(8n) {
+    background-color: lightgray;
+    transform:
+      skew(-2deg);
+  }
+
+  .tile:nth-child(8n-2) {
+    background-color: lightgray;
+    transform:
+      skew(-2deg);
+  }
+
+  .tile:nth-child(8n-5) {
+    background-color: lightgray;
+    transform:
+      skew(-2deg);
+  }
+
+  .tile:nth-child(8n-7) {
+    background-color: lightgray;
+    transform:
+      skew(-2deg);
+  }
+
+  .modal {
+    margin-right: 0;
+  }
+
+}
+
+@media( min-width: 1800px) {
+
+  .modal {
+    margin-right: 15%;
+  }
+
+}
+
+.tile:hover {
+  z-index: 1;
+  transform: scale(1.04);
+  border-radius: 15px;
+  box-shadow:
+    3px 3px 25px black,
+    0 0 250px orange;
+  transition: .3s;
+}
+
+.loader-container {
+  flex: 1 1 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 64px;
+}
+
+.loader-hourglass {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.loader-hourglass:after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 6px;
+  box-sizing: border-box;
+  border: 26px solid lightgray;
+  border-color: lightgray transparent lightgray transparent;
+  animation: loader-hourglass 1.2s infinite;
+}
+
+@keyframes loader-hourglass {
+  0% {
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  50% {
+    transform: rotate(900deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  100% {
+    transform: rotate(1800deg);
+  }
+}
+
