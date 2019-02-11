@@ -12,12 +12,12 @@ const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <React.Fragment>
         <h1 className='main-title'>What's your poison?</h1>
         <Switch>
-          <Route path='beer_app/:id' component={ BeerList } />
-          <Route path='beer_app/' component={ BeerList } />
+          <Route path='/:id' component={ BeerList } />
+          <Route path='/' component={ BeerList } />
         </Switch>
       </React.Fragment>
     </BrowserRouter>
