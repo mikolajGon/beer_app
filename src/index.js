@@ -17,7 +17,7 @@ ReactDOM.render(
         <h1 className='main-title'>What's your poison?</h1>
         <Switch>
           <Route path='/:id' component={ BeerList } />
-          <Route path='/' component={ BeerList } />
+          <Route exact path='/' component={ BeerList } />
         </Switch>
       </React.Fragment>
     </BrowserRouter>
