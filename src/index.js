@@ -13,13 +13,13 @@ const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
-      <div>
+      <React.Fragment>
         <h1 className='main-title'>What's your poison?</h1>
         <Switch>
           <Route path='/:id' component={ BeerList } />
           <Route path='/' component={ BeerList } />
         </Switch>
-      </div>
+      </React.Fragment>
     </BrowserRouter>
   </Provider>
   , document.querySelector('#root'));

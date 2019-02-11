@@ -57,7 +57,7 @@ class BeerList extends Component {
 
   render() {
     return (
-      <div >
+      <React.Fragment >
         <InfiniteScroll
           loadMore = { this.handleLoadMore.bind(this) }
           threshold = { 250 }
@@ -69,7 +69,7 @@ class BeerList extends Component {
         </InfiniteScroll>
         {this.renderListEnd()}
         {this.renderBeerDetails()}
-      </div>
+      </React.Fragment>
     );
   }
 }
