@@ -24,7 +24,13 @@ class BeerDetails extends Component {
   }
 
   renderBeerDetails(beer) {
-    if (!beer) return Loader
+    if (!beer) {
+      console.log(this.props.beerError);
+      if (this.props.beerError.error) {
+        return <h1>There is no such beer</h1>
+      }
+      return Loader
+    }
     return (
       <div className='details'>
         <div className='details-image details-section'>
@@ -33,9 +39,9 @@ class BeerDetails extends Component {
         <div className='details-description details-section'>
           <h2 className='details-description-title'> {beer.name} </h2>
           <h3 className='details-description-tagline'> {beer.tagline} </h3>
-          <span className='bold-title'> IBU: </span><span>{beer.ibu} </span>
-          <span className='bold-title'> ABV: </span><span>{beer.abv} </span>
-          <span className='bold-title'> EBC: </span><span>{beer.ebc} </span>
+          <span className='bold-title'> IBU: </span><span> {beer.ibu} </span>
+          <span className='bold-title'> ABV: </span><span> {beer.abv} </span>
+          <span className='bold-title'> EBC: </span><span> {beer.ebc} </span>
           <p> {beer.description}</p>
           <h3 className='bold-title'>Best served with:</h3>
           <ul className='details-description-food-list'>
@@ -67,8 +73,8 @@ class BeerDetails extends Component {
   }
 }
 
-function mapStateToProps({ beers }) {
-  return { beers }
+function mapStateToProps({ beers, beerError }) {
+  return { beers, beerError }
 }
 
 export default connect(mapStateToProps, { fetchBeer })(BeerDetails);

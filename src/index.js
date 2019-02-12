@@ -12,7 +12,7 @@ const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter>
       <React.Fragment>
         <h1 className='main-title'>What's your poison?</h1>
         <Switch>
